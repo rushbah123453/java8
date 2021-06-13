@@ -2,8 +2,13 @@ package functionalInterfaces.coding.data;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class StudentDataBase {
+
+    public static Supplier<Student> studentSupplier=()->{
+        return new Student("James",4,3.9,"male", Arrays.asList("swimming", "basketball","baseball","football"));
+    };
 
     /**
      * Total of 6 students in the database.

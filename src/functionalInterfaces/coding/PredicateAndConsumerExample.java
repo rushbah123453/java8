@@ -2,15 +2,17 @@ package functionalInterfaces.coding;
 
 import functionalInterfaces.coding.data.Student;
 import functionalInterfaces.coding.data.StudentDataBase;
+
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+
 public class PredicateAndConsumerExample {
     Predicate<Student> studentGpaPredicate = student -> student.getGpa() > 3;
     Predicate<Student> studentGradePredicate = student -> student.getGradeLevel() > 3;
-    BiPredicate<Integer,Double> biPredicate=(grade,gpa)-> grade>3 && gpa>3;
+    BiPredicate<Integer, Double> biPredicate = (grade, gpa) -> grade > 3 && gpa > 3;
 
     BiConsumer<Student, List<String>> studentListBiConsumer = (name, activities) -> {
         System.out.println(name.getName() + " " + activities);
@@ -21,12 +23,11 @@ public class PredicateAndConsumerExample {
         if (studentGpaPredicate.and(studentGradePredicate).test(student)) {
             studentListBiConsumer.accept(student, student.getActivities());
         }
-
     };
 
     /*Using Bi-Predicate*/
     Consumer<Student> studentConsumerbiPredicate = student -> {
-        if (biPredicate.test(student.getGradeLevel(),student.getGpa())) {
+        if (biPredicate.test(student.getGradeLevel(), student.getGpa())) {
             studentListBiConsumer.accept(student, student.getActivities());
         }
 

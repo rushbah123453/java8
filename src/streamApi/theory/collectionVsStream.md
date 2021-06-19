@@ -14,4 +14,4 @@ Streams
 2. Elements in the stream can be accessed only once
 3. Streams are lazily constructed
 4. stream can be traversed only once
-5. Performs internal iterations
+5. Performs internal iterations.

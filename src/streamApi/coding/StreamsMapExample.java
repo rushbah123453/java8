@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+// usecase: convert Students class into list/set of students name
 public class StreamsMapExample {
 
     public static void main(String[] args) {

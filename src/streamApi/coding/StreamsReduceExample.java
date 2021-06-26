@@ -1,5 +1,8 @@
 package streamApi.coding;
 
+import functionalInterfaces.coding.data.Student;
+import functionalInterfaces.coding.data.StudentDataBase;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +16,12 @@ public class StreamsReduceExample {
         Optional<Integer> value=performMultiplicationWithoutIdentity(integerList);
         if (value.isPresent()){
             System.out.println("Optional: "+value.get());
+        }
+
+        Optional<Student> student=getHighestGpa();
+        if (student.isPresent())
+        {
+            System.out.println(student.get());
         }
     }
 
@@ -31,5 +40,10 @@ public class StreamsReduceExample {
     {
         return   integerList.stream()
                 .reduce((a,b)->a*b);
+    }
+
+    public static Optional<Student> getHighestGpa(){
+       return StudentDataBase.getAllStudents().stream()
+               .reduce((s1,s2)->s1.getGpa()>s2.getGpa()? s1:s2);
     }
 }

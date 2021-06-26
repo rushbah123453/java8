@@ -18,6 +18,5 @@ public class StreamFilterExample {
         return StudentDataBase.getAllStudents().stream()
                 .filter(student -> student.getGender().equals("male"))
                 .collect(Collectors.toList());
-
     }
 }
